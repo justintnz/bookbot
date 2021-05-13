@@ -9,7 +9,7 @@
 
 ## About BookBot
 BookBot is a booking system with chatbot interface, and can be embed to external webpage, FB Fanpage and other chat channels via API.
-Backend built with [Laravel8]((https://laravel.com), [Lighthouse](https://lighthouse-php.com/) and [Botman](https://botman.io/)
+Backend built with [Laravel 8](https://laravel.com), [Lighthouse](https://lighthouse-php.com/) and [Botman](https://botman.io/)
 
 ## About Laravel
 
@@ -27,5 +27,5 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The BookBot Project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
