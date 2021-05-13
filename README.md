@@ -6,6 +6,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+## About BookBot
+BookBot is a booking system with chatbot interface, and can be embed to external webpage, FB Fanpage and other chat channels via API.
+Backend built with Laravel, Lighthouse and Lumen
 
 ## About Laravel
 
