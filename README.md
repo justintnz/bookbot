@@ -9,7 +9,7 @@
 
 ## About BookBot
 BookBot is a booking system with chatbot interface, and can be embed to external webpage, FB Fanpage and other chat channels via API.
-Backend built with Laravel8, [Lighthouse](https://lighthouse-php.com/) and [Botman](https://botman.io/)
+Backend built with [Laravel 8]((https://laravel.com), [Lighthouse](https://lighthouse-php.com/) and [Botman](https://botman.io/)
 
 ## About Laravel
 
