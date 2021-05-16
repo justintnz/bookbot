@@ -15,26 +15,14 @@ type User {
     email: String!
     created_at: DateTime!
     updated_at: DateTime!
+    token: String
 }
 
 type Customer {
   id: ID!
   name: String!
+  phone: String!
 }
-
-type Staff {
-  id: ID!
-  name: String!
-  phone:String
-}
-type Query {
-    services: [Service!]!
-        @field(resolver: "App\\GraphQL\\Queries\\Service@all")
-    customers: [Customer!]! @all
-    staff: [Staff!]! @all
-    bookings:[Booking!]!@all
-}
- 
 
 
 type Service {
@@ -42,3 +30,76 @@ type Service {
     name: String!
 }
 
+type Location {
+    id: ID!
+    name: String!
+}
+
+type Staff {
+  id: ID!
+  name: String!
+  phone:String
+}
+
+type Booking {
+  id: ID!
+  location_id: Int!
+  service_id: Int! 
+  customer_id: Int!
+  start_at: String!
+  end_at:String
+  status:String
+  
+}
+
+type Job {
+  id: ID!
+  location_id: Int!
+  service_id: Int! 
+  customer_id: Int!
+  start_at: String!
+  staff_id:Int!
+  charge:Float
+  end_at:String
+  status:String
+}
+
+
+extend type Query {
+    services: [Service!]!  @all
+    customers: [Customer!]! @guard @all
+    staff: [Staff!]! @all
+    jobs: [Job!]! @all
+
+    bookings(
+      start_at:String,
+      end_at:String
+      ):[Booking!]!
+        @field(resolver: "App\\GraphQL\\Queries\\Booking@getBetween")
+
+}
+input inputJob {
+   location_id: Int!,
+    service_id: Int! ,
+    customer_id: Int!,
+    start_at: String!,
+    staff_id:Int!,
+    charge:Float,
+    end_at:String,
+    status:String
+    data:String
+}
+
+type Mutation {
+  createJob(input:inputJob @spread ): Job! @field(resolver: "App\\GraphQL\\Mutations\\Job@create")
+  
+  "Log in to a new session and get the user."
+  login(email: String!, password: String!): User! @field(resolver: "App\\GraphQL\\Mutations\\Auth@login")
+
+  "Log out from the current session, showing the user one last time."
+  logout:Boolean  @guard @field(resolver: "App\\GraphQL\\Mutations\\Auth@logout")
+}
+
+ extend type Query @guard(with: "sanctum") {
+  me: User @auth
+}

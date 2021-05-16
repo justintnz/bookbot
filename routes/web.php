@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,12 @@ Route::get('/', function () {
 
 Route::get('/info', function () {
     phpinfo();
+});
+
+Route::post('/tokens/create', function (Request $request) {
+    if (null !== $request->user()) {
+        $token = $request->user()->createToken($request->token_name);
+        return ['token' => $token->plainTextToken];
+    }
+    return ['message' => 'please login first'];
 });
