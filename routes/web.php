@@ -23,9 +23,5 @@ Route::get('/info', function () {
 });
 
 Route::post('/tokens/create', function (Request $request) {
-    if (null !== $request->user()) {
-        $token = $request->user()->createToken($request->token_name);
-        return ['token' => $token->plainTextToken];
-    }
-    return ['message' => 'please login first'];
+    return  json_encode(['token' => csrf_token()]);
 });
