@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
         \App\Models\Staff::factory(10)->create();
-        \App\Models\Customer::factory(10)->create();
+        \App\Models\Customer::factory(100)->create();
         \App\Models\Location::factory(10)->create();
     }
 }

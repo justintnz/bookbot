@@ -45,7 +45,7 @@ type Booking {
   id: ID!
   location_id: Int!
   service_id: Int! 
-  customer_id: Int!
+  customer: Customer!
   start_at: String!
   end_at:String
   status:String
@@ -65,19 +65,7 @@ type Job {
 }
 
 
-extend type Query {
-    services: [Service!]!  @all
-    customers: [Customer!]! @guard @all
-    staff: [Staff!]! @all
-    jobs: [Job!]! @all
 
-    bookings(
-      start_at:String,
-      end_at:String
-      ):[Booking!]!
-        @field(resolver: "App\\GraphQL\\Queries\\Booking@getBetween")
-
-}
 input inputJob {
    location_id: Int!,
     service_id: Int! ,
@@ -102,4 +90,18 @@ type Mutation {
 
  extend type Query @guard(with: "sanctum") {
   me: User @auth
+}
+
+extend type Query {
+    services: [Service!]!  @all
+    customers: [Customer!]! @guard @all
+    staff: [Staff!]! @all
+    jobs: [Job!]! @all
+
+    bookings(
+      start_at:String,
+      end_at:String
+      ):[Booking!]!
+        @field(resolver: "App\\GraphQL\\Queries\\Booking@getBetween")
+
 }

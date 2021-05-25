@@ -25,3 +25,16 @@ Route::get('/info', function () {
 Route::post('/tokens/create', function (Request $request) {
     return  json_encode(['token' => csrf_token()]);
 });
+
+Route::get('/clear', function () {
+    Artisan::call('config:cache');
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+
+    exec('rm -f ' . storage_path('logs/laravel.log'));
+
+    return 'Logs and cache are cleared';
+})->name('clear.cache');
