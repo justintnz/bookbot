@@ -15,13 +15,7 @@ class Auth
     {
         // Plain Laravel: 
         $guard =  Auth::guard();
-        // Laravel Sanctum: Auth::guard(config('sanctum.guard', 'web'))
-        // $guard = \Auth::guard(config('sanctum.guard', 'web'));
-        // $args = Arr::only($args, ['email', 'password']);
 
-        // if (!$guard->attempt($args)) {
-        //     throw new \Error('Invalid credentials.');
-        // }
 
         /**
          * Since we successfully logged in, this can no longer be `null`.
@@ -36,8 +30,5 @@ class Auth
 
     public function logout($_, array $args): bool
     {
-        // Plain Laravel: Auth::guard()
-        // Laravel Sanctum: Auth::guard(config('sanctum.guard', 'web'))
-        // return auth()->user()->tokens()->delete();
     }
 }

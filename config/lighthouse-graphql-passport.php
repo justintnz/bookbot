@@ -30,7 +30,7 @@ return [
     | the default location
     |
     */
-    'schema' => null,
+    'schema' => base_path('graphql/auth.graphql'),
     /*
     |--------------------------------------------------------------------------
     | Username Column
@@ -62,7 +62,7 @@ return [
     |
     */
     'verify_email' => [
-        'base_url' => env('FRONT_URL').'/email-verify',
+        'base_url' => env('FRONT_URL') . '/email-verify',
     ],
 
 ];
