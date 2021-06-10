@@ -33,7 +33,7 @@ POST http://localhost/tokens/create
 
 
 ###
-POST http://localhost/graphql HTTP/1.1
+POST http://bot2.test/graphql HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer 14|OqPmD789UQmH9NEiaDrozcQWOMC4W2P1CVkEkd5O
 X-REQUEST-TYPE: GraphQL
@@ -50,11 +50,10 @@ query {
 POST http://bot2.test/graphql HTTP/1.1
 Content-Type: application/json
 X-REQUEST-TYPE: GraphQL
-Authorization: Bearer URuUJEyX3xtZgyHy4yJkpVQFOtIb1Ies0FnjAXxT
 
 mutation {
   login(input: {
-    username: "admin@admin.com",
+    username: "admin1@admin.com",
     password: "password"
   }) {
     access_token

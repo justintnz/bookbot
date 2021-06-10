@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
+    public function getName(): string
+    {
+        return $this->name;
+    }
 }
