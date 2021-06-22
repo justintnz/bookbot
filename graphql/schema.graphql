@@ -63,7 +63,6 @@ type Mutation {
         @guard(with: ["api"])
 }
 
-
 type Customer {
     id: ID!
     name: String!
@@ -73,6 +72,8 @@ type Customer {
 type Service {
     id: ID!
     name: String!
+    image: String
+    description: String
 }
 
 type Location {
@@ -125,7 +126,6 @@ extend type Mutation {
         @field(resolver: "App\\GraphQL\\Mutations\\Job@create")
 }
 
-
 extend type Query {
     me: User @auth
     services: [Service!]! @all
@@ -135,5 +135,4 @@ extend type Query {
 
     bookings(start_at: String, end_at: String): [Booking!]!
         @field(resolver: "App\\GraphQL\\Queries\\Booking@getBetween")
-
 }

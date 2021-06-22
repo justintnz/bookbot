@@ -10,4 +10,5 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 class Service extends Model
 {
     use HasFactory, CrudTrait;
+    protected $fillable = ['id', 'image', 'description'];
 }
