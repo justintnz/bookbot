@@ -1,3 +1,9 @@
 import './admin-user';
 import './profile-edit-profile';
 import './profile-edit-password';
+import './service';
+import './customer';
+import './location';
+import './staff';
+import './booking';
+import './job';
